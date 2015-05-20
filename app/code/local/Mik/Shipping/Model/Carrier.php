@@ -13,7 +13,7 @@ class Mik_Shipping_Model_Carrier
      *
      * @var string
      */
-    protected $_code = 'mikshipping';
+    protected $_code = 'mshipping';
 
     /**
      * Whether this carrier has fixed rates calculation
@@ -31,6 +31,8 @@ class Mik_Shipping_Model_Carrier
     public function collectRates(Mage_Shipping_Model_Rate_Request $request)
     {
         
+        //die('WTF');
+        
         if (!$this->getConfigFlag('active')) {
             //return false;
         }
@@ -41,15 +43,15 @@ class Mik_Shipping_Model_Carrier
         $method->setCarrier($this->_code);
         $method->setCarrierTitle('Mik Carrier');
 
-        $method->setMethod('fixed');
-        $method->setMethodTitle('Fixed price 10');
+        $method->setMethod('dupa');
+        $method->setMethodTitle('All for 10');
 
-        $method->setPrice('10.00');
-        $method->setCost('10.00');
+        $method->setPrice(10.00);
+        $method->setCost(10.00);
 
         $result->append($method);
 
-
+        
         return $result;
     }
 
